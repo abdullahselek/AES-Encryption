@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AES-Encryption</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_enter_text">Enter text for encryption</string>
+    <string name="str_encrypt">Encrypt</string>
+    <string name="str_decrypt">Decrypt</string>
+    <string name="str_result">Result</string>
+</resources>
