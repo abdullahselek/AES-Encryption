@@ -3,8 +3,12 @@ AES-Encryption is an Android project that includes a Java class for encrypting a
 
 First you must change the keyValue and iv variables with your own values in AES-Encryption class. Then you can use encrypt and decrypt methods as below.
 
-String encryptedText = AESEncryption.encrypt("encrypt it");
+For encryption
 
-String decryptedText = AESEncryption.decrypt(encryptedText);
+  String encryptedText = AESEncryption.encrypt("encrypt it");
+
+For decryption
+
+  String decryptedText = AESEncryption.decrypt(encryptedText);
 
 
