@@ -32,7 +32,7 @@ public class AESEncryptionTest extends TestCase {
         encyrptedData = aesEncryption.encrypt(rawData);
         assertNotNull("Raw data can not encrypted!", encyrptedData);
 
-        assertNotNull("Encyrpted data can not decrypted!", aesEncryption.decrypt(encyrptedData));
+        assertNotNull("Encrypted data can not decrypted!", aesEncryption.decrypt(encyrptedData));
     }
 
     @Override

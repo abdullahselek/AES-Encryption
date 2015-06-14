@@ -12,10 +12,10 @@ First initialize your own AESEncryption class variable with keyValue and iv stri
 
 # For encryption
 
-  String encryptedText = aesEncryption.encrypt("encrypt it");
+	String encryptedText = aesEncryption.encrypt("encrypt it");
 
 # For decryption
 
-  String decryptedText = aesEncryption.decrypt(encryptedText);
+  	String decryptedText = aesEncryption.decrypt(encryptedText);
 
 
