@@ -1,14 +1,21 @@
 # AES-Encryption
 AES-Encryption is an Android project that includes a Java class for encrypting and decrypting strings in Android with AES.
 
-First you must change the keyValue and iv variables with your own values in AES-Encryption class. Then you can use encrypt and decrypt methods as below.
+First initialize your own AESEncryption class variable with keyValue and iv string values. Then you can use encrypt and decrypt methods as below.
+
+# Initialization of AESEncryption class
+
+	String keyValue = "abdullahselekistanbultur";
+	String ivValue = "0102030405060708";
+
+	AESEncryption aesEncryption = new AESEncryption(keyValue, ivValue);
 
 # For encryption
 
-  String encryptedText = AESEncryption.encrypt("encrypt it");
+  String encryptedText = aesEncryption.encrypt("encrypt it");
 
 # For decryption
 
-  String decryptedText = AESEncryption.decrypt(encryptedText);
+  String decryptedText = aesEncryption.decrypt(encryptedText);
 
 

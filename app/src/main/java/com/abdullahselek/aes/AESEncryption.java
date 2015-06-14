@@ -20,27 +20,41 @@ public class AESEncryption {
     /**
      * key value for encryption & decryption
      */
-    private static final byte[] keyValue = new byte[] {
-            'a', 'b', 'd', 'u', 'l', 'l', 'a', 'h', 's', 'e', 'l', 'e',
-            'k', 'i', 's', 't', 'a', 'n', 'b', 'u', 'l', 't', 'u', 'r'};
+    private byte[] keyValue = null;
 
     /**
      * vector array for encryption & decryption
      */
-    private static byte[] iv = { 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8 };
+    private byte[] iv = null;
+
+    /**
+     * constructor with two variable parameters
+     * @param keyValue
+     * @param iv
+     */
+    public AESEncryption(String keyValue, String iv) {
+        if (keyValue == null || iv == null)
+            throw new NullPointerException("Encryption values can not be null!");
+
+        this.keyValue = keyValue.getBytes();
+        this.iv = iv.getBytes();
+    }
 
     /**
      * encrypt given string data
      *
-     * @param Data
+     * @param rawdata
      * @return
      * @throws Exception
      */
-    public static String encrypt(String Data) throws Exception {
+    public String encrypt(String rawdata) throws Exception {
+        if (rawdata == null)
+            throw new NullPointerException("Raw data can not be null!");
+
         Key key = generateKey();
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
-        byte[] encVal = cipher.doFinal(Data.getBytes());
+        byte[] encVal = cipher.doFinal(rawdata.getBytes());
         String encryptedValue = Base64.encodeToString(encVal, Base64.DEFAULT);
         return encryptedValue;
     }
@@ -52,7 +66,10 @@ public class AESEncryption {
      * @return
      * @throws Exception
      */
-    public static String decrypt(String encryptedData) throws Exception {
+    public String decrypt(String encryptedData) throws Exception {
+        if (encryptedData == null)
+            throw new NullPointerException("Encrypted data can not be null!");
+
         Key key = generateKey();
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(iv));
@@ -68,7 +85,7 @@ public class AESEncryption {
      * @return
      * @throws Exception
      */
-    private static Key generateKey() throws Exception {
+    private Key generateKey() throws Exception {
         Key key = new SecretKeySpec(keyValue, ALGO);
         return key;
     }

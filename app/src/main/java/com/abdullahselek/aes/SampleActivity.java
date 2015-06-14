@@ -12,15 +12,24 @@ import android.widget.TextView;
 
 public class SampleActivity extends Activity {
 
+    /** ui components **/
     private EditText etString;
     private TextView tvResult;
     private Button btnEncrypt;
     private Button btnDecrypt;
 
+    /** AES class variable **/
+    private AESEncryption aesEncryption = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
+
+        String keyValue = "abdullahselekistanbultur";
+        String ivValue = "0102030405060708";
+
+        aesEncryption = new AESEncryption(keyValue, ivValue);
 
         etString = (EditText) findViewById(R.id.etStringData);
         tvResult = (TextView) findViewById(R.id.tvResult);
@@ -30,7 +39,7 @@ public class SampleActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    tvResult.setText(AESEncryption.encrypt(etString.getText().toString()));
+                    tvResult.setText(aesEncryption.encrypt(etString.getText().toString()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -42,7 +51,7 @@ public class SampleActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    tvResult.setText(AESEncryption.decrypt(tvResult.getText().toString()));
+                    tvResult.setText(aesEncryption.decrypt(tvResult.getText().toString()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
