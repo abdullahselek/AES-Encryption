@@ -18,4 +18,15 @@ First initialize your own AESEncryption class variable with keyValue and iv stri
 
   	String decryptedText = aesEncryption.decrypt(encryptedText);
 
+# Download
+	Add it in your build.gradle at the end of repositories
+	repositories {
+        // ...
+        maven { url "https://jitpack.io" }
+ 	}
+ 	
+	Add the dependency in the form
+	dependencies {
+	    compile 'com.github.abdullahselek:AES-Encryption:0.0.2'
+	}
 
