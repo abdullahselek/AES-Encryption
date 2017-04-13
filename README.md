@@ -13,7 +13,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 ```
-Add the dependency
+> Add the dependency
 ```
 dependencies {
 	compile 'com.github.abdullahselek:AES-Encryption:0.1'
@@ -28,7 +28,7 @@ dependencies {
 	</repository>
 </repositories>
 ```
-Add the dependency
+> Add the dependency
 ```
 <dependency>
 	<groupId>com.github.abdullahselek</groupId>
