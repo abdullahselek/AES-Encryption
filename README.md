@@ -6,19 +6,20 @@ First initialize your own AESEncryption class variable with a password key. Then
 
 ## Installation
 
-> Gradle
-Add it in your root build.gradle at the end of repositories
+### Gradle
+> Add it in your root build.gradle at the end of repositories
 ```
 repositories {
-	// ...
     maven { url "https://jitpack.io" }
 }
+```
 Add the dependency
+```
 dependencies {
 	compile 'com.github.abdullahselek:AES-Encryption:0.1'
 }
 ```
-> Maven
+### Maven
 ```
 <repositories>
 	<repository>
@@ -50,5 +51,6 @@ String encryptedText = aesEncryption.encrypt("encrypt it");
 ```
 
 - For decryption
+```
 String decryptedText = aesEncryption.decrypt(encryptedText);
 ```
