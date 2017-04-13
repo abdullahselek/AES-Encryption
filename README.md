@@ -1,32 +1,54 @@
 # AES-Encryption
-AES-Encryption is an Android project that includes a Java class for encrypting and decrypting strings in Android with AES.
 
-First initialize your own AESEncryption class variable with keyValue and iv string values. Then you can use encrypt and decrypt methods as below.
+AES-Encryption is a Java class for encrypting and decrypting strings in Android with AES.
 
-# Initialization of AESEncryption class
+First initialize your own AESEncryption class variable with a password key. Then you can use encrypt and decrypt methods as below.
 
-	String keyValue = "abdullahselekistanbultur";
-	String ivValue = "0102030405060708";
+## Installation
 
-	AESEncryption aesEncryption = new AESEncryption(keyValue, ivValue);
+> Gradle
+Add it in your root build.gradle at the end of repositories
+```
+repositories {
+	// ...
+    maven { url "https://jitpack.io" }
+}
+Add the dependency
+dependencies {
+	compile 'com.github.abdullahselek:AES-Encryption:0.1'
+}
+```
+> Maven
+```
+<repositories>
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+</repositories>
+```
+Add the dependency
+```
+<dependency>
+	<groupId>com.github.abdullahselek</groupId>
+	<artifactId>AES-Encryption</artifactId>
+	<version>0.1</version>
+</dependency>
+```
 
-# For encryption
+## Example Usage
 
-	String encryptedText = aesEncryption.encrypt("encrypt it");
+- Initialization of AESEncryption class
+```
+String passwordKey = "abdullahselek";
+AESEncryption aesEncryption = new AESEncryption(passwordKey);
+```
 
-# For decryption
+- For encryption
+```
+String encryptedText = aesEncryption.encrypt("encrypt it");
+```
 
-  	String decryptedText = aesEncryption.decrypt(encryptedText);
-
-# Download
-	Add it in your build.gradle at the end of repositories
-	repositories {
-        // ...
-        maven { url "https://jitpack.io" }
- 	}
- 	
-	Add the dependency in the form
-	dependencies {
-	    compile 'com.github.abdullahselek:AES-Encryption:0.0.2'
-	}
-
+- For decryption
+String decryptedText = aesEncryption.decrypt(encryptedText);
+```
