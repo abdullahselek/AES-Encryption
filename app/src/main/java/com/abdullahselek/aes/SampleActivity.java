@@ -26,10 +26,13 @@ public class SampleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
-        String keyValue = "abdullahselekistanbultur";
-        String ivValue = "0102030405060708";
+        String passwordKey = "abdullahselek";
 
-        aesEncryption = new AESEncryption(keyValue, ivValue);
+        try {
+            aesEncryption = new AESEncryption(passwordKey);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         etString = (EditText) findViewById(R.id.etStringData);
         tvResult = (TextView) findViewById(R.id.tvResult);

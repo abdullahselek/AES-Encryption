@@ -11,14 +11,11 @@ import org.junit.Test;
 public class AESEncryptionTest extends TestCase {
 
     private AESEncryption aesEncryption;
-    private String encyrptedData;
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        String keyValue = "abdullahselekistanbultur";
-        String ivValue = "0102030405060708";
-        aesEncryption = new AESEncryption(keyValue, ivValue);
+        aesEncryption = new AESEncryption("asdfghjkl");
     }
 
     @Test
@@ -27,18 +24,23 @@ public class AESEncryptionTest extends TestCase {
     }
 
     @Test
-    public void testEncryptDecrypt() throws Exception {
+    public void testEncrypt() throws Exception {
         String rawData  = "encryption test";
-        encyrptedData = aesEncryption.encrypt(rawData);
+        String encyrptedData = aesEncryption.encrypt(rawData);
         assertNotNull("Raw data can not encrypted!", encyrptedData);
+    }
 
-        assertNotNull("Encrypted data can not decrypted!", aesEncryption.decrypt(encyrptedData));
+    @Test
+    public void testDecrypt() throws Exception {
+        String rawData = "test";
+        String encryptedData = aesEncryption.encrypt(rawData);
+        String decryptedData = aesEncryption.decrypt(encryptedData);
+        assertNotNull("Encrypted data can not decrypted!", decryptedData);
     }
 
     @Override
     protected void tearDown() throws Exception {
         aesEncryption = null;
-
         super.tearDown();
     }
 }
