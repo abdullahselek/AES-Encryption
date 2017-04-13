@@ -130,3 +130,6 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+# backup files
+projectFilesBackup/
